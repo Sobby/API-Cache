@@ -1,0 +1,12 @@
+<!-- Add cache to cache container -->
+
+          <!-- START CACHE -->
+          <replicated-cache name="sapData" mode="SYNC" start="EAGER">
+            <transaction mode="NONE" locking="PESSIMISTIC"/>
+            <locking acquire-timeout="0" />
+              <backups>
+                 <backup site="amers" strategy="SYNC" />
+              </backups>
+          </replicated-cache>
+
+          <!-- END CACHE -->

@@ -1,0 +1,22 @@
+<!-- Add to keycloak-server subsystem -->
+
+          <subsystem xmlns="urn:jboss:domain:keycloak-server:1.1">
+          <!-- START PROVIDER -->
+            <providers>
+              <provider>
+                classpath:${jboss.home.dir}/providers/*
+              </provider>
+              <provider>
+                module:com.redhat.custom.sap.data
+              </provider>
+            </providers>
+            <spi name="sapToCache">
+              <provider name="custom-sap-data-storage" enabled="true">
+                  <properties>
+                      <property name="apiEndpoint" value="apiEndpoint"/>
+                      <property name="apiKey" value="apiKey"/>
+                  </properties>
+              </provider>
+            </spi>
+          <!-- END PROVIDER -->
+          </subsystem>
